@@ -93,7 +93,6 @@ const createItemListings = (items) => {
   return items.map(createItemListing)
 }
 
-console.log(createItemListings(state.items))
 
 const renderItemListings = () => {
   const ul = document.querySelector('.store--item-list')
@@ -125,7 +124,7 @@ const createCartItemDecreaseButton = (cartItem) => {
     if (cartItem.quantity === 0) {
       removeItemFromCart(cartItem.item)
     }
-    renderCartItems()
+    render()
   })
   return decreaseBtn
 }
@@ -136,7 +135,7 @@ const createCartItemIncreaseButton = (cartItem) => {
   increaseBtn.innerText = '+'
   increaseBtn.addEventListener('click', () => {
     cartItem.quantity++
-    renderCartItems()
+    render()
   })
   return increaseBtn
 }
@@ -162,9 +161,7 @@ const renderCartItems = () => {
   const cartItems = state.cart
   const container = document.querySelector('.cart--item-list')
   const items = cartItems.map(createCartItem)
-  clearCartItems()
   container.append(...items)
-  updateTotal()
 }
 
 const addItemToCart = (item) => {
@@ -172,7 +169,7 @@ const addItemToCart = (item) => {
     return
   }
   state.cart.push({ item: item, quantity: 1 })
-  renderCartItems()
+  render()
 }
 
 const clearCartItems = () => {
@@ -198,10 +195,22 @@ const totalCart = () => {
   )
 }
 
-const updateTotal = () => {
+const renderTotal = () => {
   const totalElement = document.querySelector('.total-number')
   const total = totalCart().toFixed(2).toString()
   totalElement.innerText = `£${total}`
 }
 
-renderItemListings()
+const render = () => {
+  clear()
+  renderItemListings()
+  renderCartItems()
+  renderTotal()
+}
+
+const clear = () => {
+  clearCartItems()
+}
+
+render()
+
