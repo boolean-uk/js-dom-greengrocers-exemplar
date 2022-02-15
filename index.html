@@ -12,7 +12,12 @@
   <body>
     <header id="store">
       <h1>Greengrocers</h1>
-      <ul class="item-list store--item-list">
+      <div class="customise-container">
+        <button id="filter-veg" class="filter">Show Veg</button>
+        <button id="filter-fruit" class="filter">Show Fruit</button>
+        <button id="sort">Sort by Name</button>
+      </div>
+      <ul id="store-list" class="item-list store--item-list">
         <!-- Take a look at store-item.html -->
       </ul>
     </header>
@@ -21,7 +26,7 @@
       <h2>Your Cart</h2>
 
       <div class="cart--item-list-container">
-        <ul class="item-list cart--item-list">
+        <ul id="cart-list" class="item-list cart--item-list">
           <!-- Take a look at cart-item.html -->
         </ul>
       </div>
@@ -32,7 +37,7 @@
         </div>
 
         <div>
-          <span class="total-number">£0.00</span>
+          <span id="total" class="total-number">£0.00</span>
         </div>
       </div>
     </main>

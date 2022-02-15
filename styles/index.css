@@ -1,7 +1,7 @@
 /* Typography */
 
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
 }
 
 h1,
@@ -51,6 +51,28 @@ button {
 .store--item-icon {
   width: 125px;
   height: 125px;
+}
+
+.customise-container {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  margin: 20px;
+  justify-content: center;
+}
+
+.filter {
+  opacity: 0.4;
+  background-color: lightgrey;
+  border:none;
+  border-radius: 5px;
+  padding:10px;
+}
+
+.filter.filter-on {
+  opacity: 1;
+  color: white;
+  background-color:green;
 }
 
 @media only screen and (max-width: 600px) {
